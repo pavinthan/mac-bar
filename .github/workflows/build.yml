@@ -30,7 +30,8 @@ jobs:
       - name: Package app
         run: |
           cd build/Build/Products/Release
-          zip -r MacBar.zip MacBar.app
+          xattr -cr MacBar.app
+          ditto -c -k --keepParent MacBar.app MacBar.zip
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
