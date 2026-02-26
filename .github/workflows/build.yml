@@ -24,8 +24,11 @@ jobs:
             -configuration Release \
             -derivedDataPath build \
             CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_REQUIRED=YES \
+            CODE_SIGNING_ALLOWED=YES
+
+      - name: Ad-hoc sign
+        run: codesign --force --deep --sign - build/Build/Products/Release/MacBar.app
 
       - name: Package app
         run: |
@@ -38,3 +41,16 @@ jobs:
         with:
           files: build/Build/Products/Release/MacBar.zip
           generate_release_notes: true
+          body: |
+            ## Install
+
+            1. Download `MacBar.zip` below
+            2. Unzip it
+            3. Open Terminal and run:
+               ```
+               xattr -cr ~/Downloads/MacBar.app
+               ```
+            4. Move `MacBar.app` to `/Applications`
+            5. Double-click to open
+
+            > The `xattr` command is needed because the app is not notarized with Apple. This is safe for apps you trust.
