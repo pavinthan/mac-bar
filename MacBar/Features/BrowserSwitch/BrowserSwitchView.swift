@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BrowserSwitchView: View {
     @Environment(AppState.self) private var appState
+    @State private var showingPermissionHint = false
 
     var body: some View {
         let manager = appState.browserManager
@@ -11,10 +12,23 @@ struct BrowserSwitchView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
         } else {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    ForEach(manager.browsers) { browser in
-                        browserButton(browser: browser)
+            VStack(alignment: .leading, spacing: 6) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(manager.browsers) { browser in
+                            browserButton(browser: browser)
+                        }
+                    }
+                }
+
+                if showingPermissionHint {
+                    HStack(spacing: 4) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.system(size: 9))
+                            .foregroundStyle(.yellow)
+                        Text("Grant Accessibility permission, then try again.")
+                            .font(.system(size: 10))
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
@@ -23,7 +37,14 @@ struct BrowserSwitchView: View {
 
     private func browserButton(browser: BrowserInfo) -> some View {
         Button {
-            appState.browserManager.setDefault(browserID: browser.id)
+            let manager = appState.browserManager
+            if manager.hasAccessibilityPermission {
+                showingPermissionHint = false
+                manager.setDefault(browserID: browser.id)
+            } else {
+                manager.requestAccessibilityPermission()
+                showingPermissionHint = true
+            }
         } label: {
             VStack(spacing: 4) {
                 ZStack(alignment: .bottomTrailing) {

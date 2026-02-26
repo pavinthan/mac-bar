@@ -24,14 +24,8 @@ A lightweight macOS menu bar utility that puts quick-access tools and system inf
 
 1. Download `MacBar.zip` from the [latest release](https://github.com/pavinthan/mac-bar/releases/latest)
 2. Unzip it
-3. Open Terminal and run:
-   ```
-   xattr -cr ~/Downloads/MacBar.app
-   ```
-4. Move `MacBar.app` to `/Applications`
-5. Double-click to open
-
-> The `xattr` command is needed because the app is not notarized with Apple. This is safe for apps you trust.
+3. Move `MacBar.app` to `/Applications`
+4. Double-click to open
 
 ### Build from Source
 

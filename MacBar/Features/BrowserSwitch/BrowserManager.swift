@@ -66,12 +66,24 @@ final class BrowserManager {
             .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
     }
 
+    var hasAccessibilityPermission: Bool {
+        AXIsProcessTrusted()
+    }
+
+    func requestAccessibilityPermission() {
+        let options = [kAXTrustedCheckOptionPrompt.takeRetainedValue(): true] as CFDictionary
+        AXIsProcessTrustedWithOptions(options)
+    }
+
     func setDefault(browserID: String) {
         guard let appURL = NSWorkspace.shared.urlForApplication(
             withBundleIdentifier: browserID
         ) else {
             return
         }
+
+        // Auto-accept the macOS confirmation dialog via AppleScript
+        autoAcceptBrowserDialog()
 
         Task {
             do {
@@ -89,5 +101,29 @@ final class BrowserManager {
                 refresh()
             }
         }
+    }
+
+    private func autoAcceptBrowserDialog() {
+        let script = """
+        repeat 10 times
+            try
+                tell application "System Events"
+                    if exists (process "CoreServicesUIAgent") then
+                        tell process "CoreServicesUIAgent"
+                            if exists window 1 then
+                                click button 1 of window 1
+                                return
+                            end if
+                        end tell
+                    end if
+                end tell
+            end try
+            delay 0.2
+        end repeat
+        """
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", script]
+        try? process.run()
     }
 }
