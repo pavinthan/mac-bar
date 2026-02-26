@@ -45,6 +45,13 @@ struct ContentView: View {
             SectionHeader(title: "System", icon: "cpu")
             SystemStatsView()
 
+            if appState.aiUsageManager.isConfigured {
+                Divider()
+
+                SectionHeader(title: "AI Usage", icon: "brain")
+                AIUsageView()
+            }
+
             Divider()
 
             footerSection

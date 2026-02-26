@@ -18,6 +18,7 @@ final class AppState {
     var qrScannerManager = QRScannerManager()
     var clockManager = ClockManager()
     var audioManager = AudioManager()
+    var aiUsageManager = AIUsageManager()
 
     var showingSettings = false
 
@@ -54,5 +55,6 @@ final class AppState {
     init() {
         browserManager.refresh()
         systemStatsManager.startMonitoring()
+        aiUsageManager.startMonitoring()
     }
 }

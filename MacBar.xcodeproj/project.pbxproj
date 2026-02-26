@@ -32,6 +32,11 @@
 		A100000023 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000026; };
 		A100000024 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000027; };
 		A100000025 /* AudioControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000028; };
+		A100000030 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000030; };
+		A100000031 /* ClaudeUsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000031; };
+		A100000032 /* OpenAIUsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000032; };
+		A100000033 /* AIUsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000033; };
+		A100000034 /* AIUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000034; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +68,11 @@
 		B100000026 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B100000027 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		B100000028 /* AudioControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioControlView.swift; sourceTree = "<group>"; };
+		B100000030 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		B100000031 /* ClaudeUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeUsageService.swift; sourceTree = "<group>"; };
+		B100000032 /* OpenAIUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIUsageService.swift; sourceTree = "<group>"; };
+		B100000033 /* AIUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUsageManager.swift; sourceTree = "<group>"; };
+		B100000034 /* AIUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUsageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,7 @@
 				D100000010 /* SystemStats */,
 				D100000011 /* QRScanner */,
 				D100000012 /* AudioControl */,
+				D100000014 /* AIUsage */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -202,6 +213,18 @@
 				B100000028 /* AudioControlView.swift */,
 			);
 			path = AudioControl;
+			sourceTree = "<group>";
+		};
+		D100000014 /* AIUsage */ = {
+			isa = PBXGroup;
+			children = (
+				B100000030 /* KeychainHelper.swift */,
+				B100000031 /* ClaudeUsageService.swift */,
+				B100000032 /* OpenAIUsageService.swift */,
+				B100000033 /* AIUsageManager.swift */,
+				B100000034 /* AIUsageView.swift */,
+			);
+			path = AIUsage;
 			sourceTree = "<group>";
 		};
 		D100000013 /* Resources */ = {
@@ -307,6 +330,11 @@
 				A100000023 /* SettingsView.swift in Sources */,
 				A100000024 /* AudioManager.swift in Sources */,
 				A100000025 /* AudioControlView.swift in Sources */,
+				A100000030 /* KeychainHelper.swift in Sources */,
+				A100000031 /* ClaudeUsageService.swift in Sources */,
+				A100000032 /* OpenAIUsageService.swift in Sources */,
+				A100000033 /* AIUsageManager.swift in Sources */,
+				A100000034 /* AIUsageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
