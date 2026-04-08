@@ -5,7 +5,11 @@ struct ContentView: View {
 
     var body: some View {
         Group {
-            if appState.showingSettings {
+            if appState.showingOnboarding {
+                OnboardingView()
+                    .environment(appState)
+                    .transition(.move(edge: .bottom))
+            } else if appState.showingSettings {
                 SettingsView()
                     .environment(appState)
                     .transition(.move(edge: .trailing))
@@ -34,10 +38,21 @@ struct ContentView: View {
             SectionHeader(title: "Quick Actions", icon: "bolt.fill")
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 4), spacing: 10) {
                 ColorPickerFeatureView()
-                CleaningModeView()
                 QRScannerView()
+                CleaningModeView()
+                LockdownModeView()
                 MuteSoundView()
                 MuteMicView()
+                VoiceModeView()
+                OpenInTerminalView()
+                CopyPathView()
+                NewTextFileView()
+                ToggleHiddenFilesView()
+                KeepAwakeView()
+                UUIDGeneratorView()
+                ULIDGeneratorView()
+                CaptureTextView()
+                PortKillerButtonView()
             }
 
             Divider()

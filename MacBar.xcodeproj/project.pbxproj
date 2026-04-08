@@ -37,6 +37,36 @@
 		A100000032 /* OpenAIUsageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000032; };
 		A100000033 /* AIUsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000033; };
 		A100000034 /* AIUsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000034; };
+		A100000040 /* PipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000040; };
+		A100000041 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000041; };
+		A100000042 /* WhisperKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000042; };
+		A100000043 /* KeySimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000043; };
+		A100000044 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000044; };
+		A100000045 /* IntentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000045; };
+		A100000046 /* VoiceActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000046; };
+		A100000047 /* VoicePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000047; };
+		A100000048 /* VoiceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000048; };
+		A100000049 /* VoiceModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000049; };
+		A100000050 /* VoiceModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000050; };
+		A100000051 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = P100000001; };
+		A100000060 /* FinderUtilsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000060; };
+		A100000061 /* FinderUtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000061; };
+		A100000070 /* LockdownModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000070; };
+		A100000071 /* LockdownModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000071; };
+		A100000080 /* GlobalShortcutsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000080; };
+		A100000082 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = P100000002; };
+		A100000090 /* MacBarIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000090; };
+		A100000091 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000091; };
+		A100000100 /* KeepAwakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100; };
+		A100000101 /* KeepAwakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000101; };
+		A100000102 /* UUIDGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000102; };
+		A100000103 /* PublicIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000103; };
+		A100000110 /* PortKillerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000110; };
+		A100000111 /* PortKillerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000111; };
+		A100000120 /* TextCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000120; };
+		A100000121 /* TextCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000121; };
+		A100000122 /* ScreenSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000122; };
+		A100000123 /* SelectionHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000123; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +103,34 @@
 		B100000032 /* OpenAIUsageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIUsageService.swift; sourceTree = "<group>"; };
 		B100000033 /* AIUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUsageManager.swift; sourceTree = "<group>"; };
 		B100000034 /* AIUsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIUsageView.swift; sourceTree = "<group>"; };
+		B100000040 /* PipelineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineState.swift; sourceTree = "<group>"; };
+		B100000041 /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
+		B100000042 /* WhisperKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperKitService.swift; sourceTree = "<group>"; };
+		B100000043 /* KeySimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySimulator.swift; sourceTree = "<group>"; };
+		B100000044 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		B100000045 /* IntentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentParser.swift; sourceTree = "<group>"; };
+		B100000046 /* VoiceActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActions.swift; sourceTree = "<group>"; };
+		B100000047 /* VoicePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePipeline.swift; sourceTree = "<group>"; };
+		B100000048 /* VoiceOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOverlay.swift; sourceTree = "<group>"; };
+		B100000049 /* VoiceModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModeManager.swift; sourceTree = "<group>"; };
+		B100000050 /* VoiceModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModeView.swift; sourceTree = "<group>"; };
+		B100000060 /* FinderUtilsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderUtilsManager.swift; sourceTree = "<group>"; };
+		B100000061 /* FinderUtilsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderUtilsView.swift; sourceTree = "<group>"; };
+		B100000070 /* LockdownModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockdownModeManager.swift; sourceTree = "<group>"; };
+		B100000071 /* LockdownModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockdownModeView.swift; sourceTree = "<group>"; };
+		B100000080 /* GlobalShortcutsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcutsManager.swift; sourceTree = "<group>"; };
+		B100000090 /* MacBarIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacBarIntents.swift; sourceTree = "<group>"; };
+		B100000091 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B100000100 /* KeepAwakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeManager.swift; sourceTree = "<group>"; };
+		B100000101 /* KeepAwakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeView.swift; sourceTree = "<group>"; };
+		B100000102 /* UUIDGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDGeneratorView.swift; sourceTree = "<group>"; };
+		B100000103 /* PublicIPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicIPView.swift; sourceTree = "<group>"; };
+		B100000110 /* PortKillerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKillerManager.swift; sourceTree = "<group>"; };
+		B100000111 /* PortKillerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortKillerView.swift; sourceTree = "<group>"; };
+		B100000120 /* TextCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCaptureManager.swift; sourceTree = "<group>"; };
+		B100000121 /* TextCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCaptureView.swift; sourceTree = "<group>"; };
+		B100000122 /* ScreenSelectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSelectionOverlay.swift; sourceTree = "<group>"; };
+		B100000123 /* SelectionHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHighlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A100000051 /* WhisperKit in Frameworks */,
+				A100000082 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +189,7 @@
 				B100000004 /* SectionHeader.swift */,
 				B100000005 /* ProgressBarView.swift */,
 				B100000026 /* SettingsView.swift */,
+				B100000091 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +205,15 @@
 				D100000011 /* QRScanner */,
 				D100000012 /* AudioControl */,
 				D100000014 /* AIUsage */,
+				D100000015 /* VoiceMode */,
+				D100000016 /* FinderUtils */,
+				D100000017 /* LockdownMode */,
+				D100000018 /* GlobalShortcuts */,
+				D100000019 /* AppIntents */,
+				D100000020 /* KeepAwake */,
+				D100000021 /* UUIDGenerator */,
+				D100000022 /* PortKiller */,
+				D100000023 /* TextCapture */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -227,6 +297,96 @@
 			path = AIUsage;
 			sourceTree = "<group>";
 		};
+		D100000019 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				B100000090 /* MacBarIntents.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
+		D100000023 /* TextCapture */ = {
+			isa = PBXGroup;
+			children = (
+				B100000120 /* TextCaptureManager.swift */,
+				B100000121 /* TextCaptureView.swift */,
+				B100000122 /* ScreenSelectionOverlay.swift */,
+				B100000123 /* SelectionHighlight.swift */,
+			);
+			path = TextCapture;
+			sourceTree = "<group>";
+		};
+		D100000022 /* PortKiller */ = {
+			isa = PBXGroup;
+			children = (
+				B100000110 /* PortKillerManager.swift */,
+				B100000111 /* PortKillerView.swift */,
+			);
+			path = PortKiller;
+			sourceTree = "<group>";
+		};
+		D100000020 /* KeepAwake */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100 /* KeepAwakeManager.swift */,
+				B100000101 /* KeepAwakeView.swift */,
+			);
+			path = KeepAwake;
+			sourceTree = "<group>";
+		};
+		D100000021 /* UUIDGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				B100000102 /* UUIDGeneratorView.swift */,
+			);
+			path = UUIDGenerator;
+			sourceTree = "<group>";
+		};
+		D100000018 /* GlobalShortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				B100000080 /* GlobalShortcutsManager.swift */,
+			);
+			path = GlobalShortcuts;
+			sourceTree = "<group>";
+		};
+		D100000017 /* LockdownMode */ = {
+			isa = PBXGroup;
+			children = (
+				B100000070 /* LockdownModeManager.swift */,
+				B100000071 /* LockdownModeView.swift */,
+			);
+			path = LockdownMode;
+			sourceTree = "<group>";
+		};
+		D100000016 /* FinderUtils */ = {
+			isa = PBXGroup;
+			children = (
+				B100000060 /* FinderUtilsManager.swift */,
+				B100000061 /* FinderUtilsView.swift */,
+				B100000103 /* PublicIPView.swift */,
+			);
+			path = FinderUtils;
+			sourceTree = "<group>";
+		};
+		D100000015 /* VoiceMode */ = {
+			isa = PBXGroup;
+			children = (
+				B100000040 /* PipelineState.swift */,
+				B100000041 /* AudioCaptureService.swift */,
+				B100000042 /* WhisperKitService.swift */,
+				B100000043 /* KeySimulator.swift */,
+				B100000044 /* HotkeyManager.swift */,
+				B100000045 /* IntentParser.swift */,
+				B100000046 /* VoiceActions.swift */,
+				B100000047 /* VoicePipeline.swift */,
+				B100000048 /* VoiceOverlay.swift */,
+				B100000049 /* VoiceModeManager.swift */,
+				B100000050 /* VoiceModeView.swift */,
+			);
+			path = VoiceMode;
+			sourceTree = "<group>";
+		};
 		D100000013 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +413,10 @@
 			dependencies = (
 			);
 			name = MacBar;
+			packageProductDependencies = (
+				P100000001 /* WhisperKit */,
+				P100000002 /* Sparkle */,
+			);
 			productName = MacBar;
 			productReference = B100000025 /* MacBar.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +445,10 @@
 				Base,
 			);
 			mainGroup = D100000001 /* Root */;
+			packageReferences = (
+				R100000001 /* XCRemoteSwiftPackageReference "WhisperKit" */,
+				R100000002 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = D100000099 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,6 +503,34 @@
 				A100000032 /* OpenAIUsageService.swift in Sources */,
 				A100000033 /* AIUsageManager.swift in Sources */,
 				A100000034 /* AIUsageView.swift in Sources */,
+				A100000040 /* PipelineState.swift in Sources */,
+				A100000041 /* AudioCaptureService.swift in Sources */,
+				A100000042 /* WhisperKitService.swift in Sources */,
+				A100000043 /* KeySimulator.swift in Sources */,
+				A100000044 /* HotkeyManager.swift in Sources */,
+				A100000045 /* IntentParser.swift in Sources */,
+				A100000046 /* VoiceActions.swift in Sources */,
+				A100000047 /* VoicePipeline.swift in Sources */,
+				A100000048 /* VoiceOverlay.swift in Sources */,
+				A100000049 /* VoiceModeManager.swift in Sources */,
+				A100000050 /* VoiceModeView.swift in Sources */,
+				A100000060 /* FinderUtilsManager.swift in Sources */,
+				A100000061 /* FinderUtilsView.swift in Sources */,
+				A100000070 /* LockdownModeManager.swift in Sources */,
+				A100000071 /* LockdownModeView.swift in Sources */,
+				A100000080 /* GlobalShortcutsManager.swift in Sources */,
+				A100000090 /* MacBarIntents.swift in Sources */,
+				A100000091 /* OnboardingView.swift in Sources */,
+				A100000100 /* KeepAwakeManager.swift in Sources */,
+				A100000101 /* KeepAwakeView.swift in Sources */,
+				A100000102 /* UUIDGeneratorView.swift in Sources */,
+				A100000103 /* PublicIPView.swift in Sources */,
+				A100000110 /* PortKillerManager.swift in Sources */,
+				A100000111 /* PortKillerView.swift in Sources */,
+				A100000120 /* TextCaptureManager.swift in Sources */,
+				A100000121 /* TextCaptureView.swift in Sources */,
+				A100000122 /* ScreenSelectionOverlay.swift in Sources */,
+				A100000123 /* SelectionHighlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +723,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		R100000002 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
+		R100000001 /* XCRemoteSwiftPackageReference "WhisperKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/WhisperKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		P100000002 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = R100000002 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		P100000001 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = R100000001 /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 	};
 	rootObject = E100000099 /* Project object */;

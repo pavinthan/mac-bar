@@ -38,16 +38,20 @@ final class BrowserManager {
         let httpsHandlers = NSWorkspace.shared.urlsForApplications(toOpen: httpsURL)
         let browserURLs = Set(htmlHandlers).intersection(httpsHandlers)
 
-        var seen = Set<String>()
+        var seenIDs = Set<String>()
+        var seenPaths = Set<String>()
         browsers = browserURLs
             .compactMap { url -> BrowserInfo? in
+                let resolvedPath = url.standardizedFileURL.path
                 guard let bundle = Bundle(url: url),
                       let bundleID = bundle.bundleIdentifier,
                       !Self.excludedIDs.contains(bundleID),
-                      !seen.contains(bundleID) else {
+                      !seenIDs.contains(bundleID),
+                      !seenPaths.contains(resolvedPath) else {
                     return nil
                 }
-                seen.insert(bundleID)
+                seenIDs.insert(bundleID)
+                seenPaths.insert(resolvedPath)
 
                 let name = bundle.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
                     ?? bundle.object(forInfoDictionaryKey: "CFBundleName") as? String
@@ -82,10 +86,12 @@ final class BrowserManager {
             return
         }
 
-        // Auto-accept the macOS confirmation dialog via AppleScript
+        // Start watching for the dialog before triggering it
         autoAcceptBrowserDialog()
 
         Task {
+            // Small delay to let the AppleScript watcher start
+            try? await Task.sleep(nanoseconds: 100_000_000)
             do {
                 try await NSWorkspace.shared.setDefaultApplication(
                     at: appURL, toOpenURLsWithScheme: "http"
@@ -105,7 +111,7 @@ final class BrowserManager {
 
     private func autoAcceptBrowserDialog() {
         let script = """
-        repeat 10 times
+        repeat 60 times
             try
                 tell application "System Events"
                     if exists (process "CoreServicesUIAgent") then
@@ -118,12 +124,14 @@ final class BrowserManager {
                     end if
                 end tell
             end try
-            delay 0.2
+            delay 0.05
         end repeat
         """
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
         process.arguments = ["-e", script]
+        process.standardOutput = FileHandle.nullDevice
+        process.standardError = FileHandle.nullDevice
         try? process.run()
     }
 }

@@ -30,5 +30,13 @@
 	<true/>
 	<key>NSScreenCaptureUsageDescription</key>
 	<string>MacBar needs screen access to scan QR codes from your screen.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MacBar needs microphone access for Voice Mode to transcribe your speech.</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/pavinthan/mac-bar/main/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string></string>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
 </dict>
 </plist>

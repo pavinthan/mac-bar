@@ -3,6 +3,8 @@ import Carbon.HIToolbox
 
 @Observable
 final class CleaningModeManager {
+    static let shared = CleaningModeManager()
+
     var isEnabled = false
     private var cleaningWindows: [NSWindow] = []
     private var eventMonitor: Any?

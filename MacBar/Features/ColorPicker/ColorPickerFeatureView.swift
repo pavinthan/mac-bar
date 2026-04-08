@@ -12,7 +12,7 @@ struct ColorPickerFeatureView: View {
         } label: {
             VStack(spacing: 4) {
                 Image(systemName: "eyedropper")
-                    .font(.title2)
+                    .font(.title3)
                 Text("Pick Color")
                     .font(.caption2)
             }

@@ -11,7 +11,7 @@ struct MuteSoundView: View {
         } label: {
             VStack(spacing: 4) {
                 Image(systemName: manager.isSoundMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
-                    .font(.title2)
+                    .font(.title3)
                     .contentTransition(.symbolEffect(.replace))
                 Text(manager.isSoundMuted ? "Unmute" : "Sound")
                     .font(.caption2)
@@ -36,7 +36,7 @@ struct MuteMicView: View {
         } label: {
             VStack(spacing: 4) {
                 Image(systemName: manager.isMicMuted ? "mic.slash.fill" : "mic.fill")
-                    .font(.title2)
+                    .font(.title3)
                     .contentTransition(.symbolEffect(.replace))
                 Text(manager.isMicMuted ? "Unmute" : "Mic")
                     .font(.caption2)

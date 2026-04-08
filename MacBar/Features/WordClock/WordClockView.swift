@@ -55,6 +55,10 @@ final class ClockManager {
 struct WordClockView: View {
     @Environment(AppState.self) private var appState
     @State private var now = Date()
+    @State private var publicIP: String?
+    @State private var showPublicIP = false
+    @State private var copiedTime = false
+    @State private var copiedIP = false
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -66,6 +70,11 @@ struct WordClockView: View {
         .frame(maxWidth: .infinity)
         .onReceive(timer) { _ in
             now = Date()
+        }
+        .task {
+            if publicIP == nil {
+                publicIP = await fetchPublicIP()
+            }
         }
     }
 
@@ -89,16 +98,65 @@ struct WordClockView: View {
         return HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
-                    Text(timeString)
-                        .font(.system(size: 18, weight: .semibold, design: .monospaced))
+                    Button {
+                        let f = ISO8601DateFormatter()
+                        f.formatOptions = [.withInternetDateTime]
+                        f.timeZone = TimeZone(identifier: "UTC")
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(f.string(from: now), forType: .string)
+                        copiedTime = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { copiedTime = false }
+                    } label: {
+                        Text(copiedTime ? "Copied!" : timeString)
+                            .font(.system(size: 18, weight: .semibold, design: .monospaced))
+                    }
+                    .buttonStyle(.plain)
+
                     Text(clock.label)
                         .font(.system(size: 11, weight: .medium))
                         .foregroundStyle(.secondary)
+                    Spacer()
+
+                    Button {
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(localIP(), forType: .string)
+                        copiedIP = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { copiedIP = false }
+                    } label: {
+                        Text(copiedIP ? "Copied" : localIP())
+                            .font(.system(size: 10, design: .monospaced))
+                            .foregroundStyle(.tertiary)
+                    }
+                    .buttonStyle(.plain)
                 }
 
-                Text(dateString)
-                    .font(.system(size: 10))
-                    .foregroundStyle(.tertiary)
+                HStack {
+                    Text(dateString)
+                        .font(.system(size: 10))
+                        .foregroundStyle(.tertiary)
+
+                    Spacer()
+
+                    Button {
+                        if let ip = publicIP {
+                            NSPasteboard.general.clearContents()
+                            NSPasteboard.general.setString(ip, forType: .string)
+                            showPublicIP = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                showPublicIP = false
+                            }
+                        }
+                    } label: {
+                        HStack(spacing: 3) {
+                            Image(systemName: showPublicIP ? "checkmark" : "network")
+                                .font(.system(size: 8))
+                            Text(showPublicIP ? "Copied" : "Public IP")
+                                .font(.system(size: 10))
+                        }
+                        .foregroundStyle(.tertiary)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
 
             Spacer()
@@ -114,6 +172,53 @@ struct WordClockView: View {
                 .buttonStyle(.plain)
             }
         }
+    }
+}
+
+extension WordClockView {
+    var publicIPDisplay: String {
+        guard let ip = publicIP else { return "•••••••" }
+        if showPublicIP {
+            return ip
+        }
+        // Mask: show first octet, mask the rest
+        let parts = ip.split(separator: ".")
+        if parts.count == 4 {
+            return "\(parts[0]).*.*.*"
+        }
+        return "•••••••"
+    }
+
+    func fetchPublicIP() async -> String? {
+        guard let url = URL(string: "https://api.ipify.org") else { return nil }
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+        } catch {
+            return nil
+        }
+    }
+
+    func localIP() -> String {
+        var address = "—"
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0, let firstAddr = ifaddr else { return address }
+        defer { freeifaddrs(ifaddr) }
+
+        for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            let sa = ptr.pointee.ifa_addr.pointee
+            guard sa.sa_family == UInt8(AF_INET) else { continue }
+            let name = String(cString: ptr.pointee.ifa_name)
+            guard name == "en0" || name == "en1" else { continue }
+
+            var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+            getnameinfo(ptr.pointee.ifa_addr, socklen_t(sa.sa_len),
+                        &hostname, socklen_t(hostname.count),
+                        nil, 0, NI_NUMERICHOST)
+            address = String(cString: hostname)
+            break
+        }
+        return address
     }
 }
 
