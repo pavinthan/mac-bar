@@ -26,18 +26,18 @@ final class LockdownModeManager {
     func activate() {
         guard !isActive else { return }
 
-        let eventMask: CGEventMask =
-            (1 << CGEventType.keyDown.rawValue) |
-            (1 << CGEventType.keyUp.rawValue) |
-            (1 << CGEventType.flagsChanged.rawValue) |
-            (1 << CGEventType.leftMouseDown.rawValue) |
-            (1 << CGEventType.leftMouseUp.rawValue) |
-            (1 << CGEventType.rightMouseDown.rawValue) |
-            (1 << CGEventType.rightMouseUp.rawValue) |
-            (1 << CGEventType.mouseMoved.rawValue) |
-            (1 << CGEventType.leftMouseDragged.rawValue) |
-            (1 << CGEventType.rightMouseDragged.rawValue) |
-            (1 << CGEventType.scrollWheel.rawValue)
+        var eventMask: CGEventMask = 0
+        eventMask |= (1 << CGEventType.keyDown.rawValue)
+        eventMask |= (1 << CGEventType.keyUp.rawValue)
+        eventMask |= (1 << CGEventType.flagsChanged.rawValue)
+        eventMask |= (1 << CGEventType.leftMouseDown.rawValue)
+        eventMask |= (1 << CGEventType.leftMouseUp.rawValue)
+        eventMask |= (1 << CGEventType.rightMouseDown.rawValue)
+        eventMask |= (1 << CGEventType.rightMouseUp.rawValue)
+        eventMask |= (1 << CGEventType.mouseMoved.rawValue)
+        eventMask |= (1 << CGEventType.leftMouseDragged.rawValue)
+        eventMask |= (1 << CGEventType.rightMouseDragged.rawValue)
+        eventMask |= (1 << CGEventType.scrollWheel.rawValue)
 
         // Store self pointer for the C callback
         let selfPtr = Unmanaged.passRetained(self).toOpaque()
